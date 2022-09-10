@@ -16,6 +16,8 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableHighlight,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
@@ -57,6 +59,18 @@ const App = () => {
             button
           </Text>
         </View>
+        <TouchableHighlight
+          activeOpacity={0.8}
+          underlayColor="orange"
+          style={styles.highlightbutton}
+          onPress={() => {
+            console.log('11');
+          }}>
+          <Text style={styles.textbutton}>highlight button</Text>
+        </TouchableHighlight>
+        <TouchableOpacity style={styles.highlightbutton}>
+          <Text style={styles.textbutton}>TouchableOpacity</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -73,6 +87,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 'auto', //表示左右的Margin  auto是没用的
     marginVertical: 100, //表示上下的margin
     //paddingHorizontal一样的
+  },
+  textbutton: {
+    color: 'black',
+  },
+  highlightbutton: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 200,
+    backgroundColor: 'yellow',
+    height: 50,
+    borderRadius: 25,
   },
 });
 export default App;
