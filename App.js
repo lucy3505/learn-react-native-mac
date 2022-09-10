@@ -9,6 +9,8 @@
 import React from 'react';
 
 import {
+  Button,
+  Linking,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -39,9 +41,38 @@ const App = () => {
       <View>
         <Text>11</Text>
         <Icon name="rocket" size={30} color="green" />
+        <Button
+          style={styles.mybutton}
+          color="red"
+          title="跳转到外部"
+          onPress={() => {
+            Linking.openURL('http://baidu.com');
+          }}></Button>
+        <View>
+          <Text
+            style={styles.mybutton}
+            onPress={() => {
+              Linking.openURL('http://www.gxaedu.com');
+            }}>
+            button
+          </Text>
+        </View>
       </View>
     </SafeAreaView>
   );
 };
-
+const styles = StyleSheet.create({
+  mybutton: {
+    width: 200,
+    color: 'red',
+    backgroundColor: 'yellow',
+    height: 50,
+    borderRadius: 25,
+    textAlign: 'center',
+    lineHeight: 50,
+    marginHorizontal: 'auto', //表示左右的Margin  auto是没用的
+    marginVertical: 100, //表示上下的margin
+    //paddingHorizontal一样的
+  },
+});
 export default App;
